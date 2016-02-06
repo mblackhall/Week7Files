@@ -22,13 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Files" />
-        <module name="untitled" />
+        <module name="files" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Files" target="1.5" />
-      <module name="untitled" target="1.5" />
+      <module name="files" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

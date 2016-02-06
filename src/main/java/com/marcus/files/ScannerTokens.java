@@ -21,6 +21,7 @@ public class ScannerTokens {
         while (sin.hasNextInt()) {
             System.out.println("echo ** " + sin.nextInt());
         }
+
     }
 
 }

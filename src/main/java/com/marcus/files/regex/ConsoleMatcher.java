@@ -3,6 +3,7 @@ package com.marcus.files.regex;
 import java.io.Console;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * @author marcus
@@ -19,13 +20,22 @@ public class ConsoleMatcher {
             search = console.readLine("%-15s", "Search text :");
             if (search.equals("END")) break;
 
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(search);
-            System.out.print("Found at : ");
-            while (matcher.find()) {
-                System.out.print("Start: " + matcher.start() + " " + " Group: " + matcher.group() + " ");;
+
+
+
+            try {
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(search);
+                System.out.print("Found at : ");
+                while (matcher.find()) {
+                    System.out.print("Start: " + matcher.start() + " " + " Group: " + matcher.group() + " ");;
+                }
+                System.out.println(" ");
+            } catch (PatternSyntaxException pe){
+                System.out.println("pattern invalid");
+                continue;
             }
-            System.out.println(" ");
+
 
         }
 

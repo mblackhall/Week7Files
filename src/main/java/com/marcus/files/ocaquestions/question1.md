@@ -1,6 +1,7 @@
 ### Question 1
-```java
 Given:
+```java
+
 class Fizz {
 int x = 5;
     public static void main(String[] args) {

@@ -24,6 +24,7 @@ public class ReadWrite {
         FileReader reader = null;
         try {
             writer = new FileWriter("myfile.txt");
+
             writer.write("Dulce est decorum\nest prop patria mori");
             writer.flush();
             writer.close();

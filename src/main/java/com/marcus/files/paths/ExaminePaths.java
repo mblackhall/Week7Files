@@ -32,8 +32,11 @@ public class ExaminePaths {
             }
             System.out.println("Directory exists : " + Files.exists(createDirPath));
 
+            Path newfile = Paths.get(createDirPath.toString(),"myfile.txt");
             // create a file in this dir
-            Files.createFile(Paths.get(createDirPath.toString(),"myfile.txt"));
+            if (Files.notExists(newfile) ) {
+                Files.createFile(newfile);
+            }
 
 
         } catch (IOException e) {

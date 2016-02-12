@@ -16,10 +16,11 @@ public class ScannerTokens {
             System.out.println(scan.next());
         }
 
-        Scanner sin = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        while (sin.hasNextInt()) {
-            System.out.println("echo ** " + sin.nextInt());
+
+        while (scanner.hasNextInt()) {
+            System.out.println("echo ** " + scanner.nextInt());
         }
 
     }

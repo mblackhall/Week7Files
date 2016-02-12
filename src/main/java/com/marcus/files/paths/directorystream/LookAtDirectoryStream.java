@@ -11,32 +11,41 @@ import java.nio.file.Paths;
  */
 public class LookAtDirectoryStream {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Path path = Paths.get("/home/marcus/Downloads");
 
         // note directory stream only looks at current path does not go deeper
 // list all files and directories in path...
         // try with resource -- dont have to manually close the stream !!
         // IMPORTANT --- the pattern is not a regular expression but can use them
-      usePattern(path,"[Hu]*.*");  // this is called a glob pattern
+
+      //  withoutPattern(path);
+
+        usePattern(path, "[Hu]*.*");  // this is called a glob pattern
     }
 
     // you can linits entries with a pattern
 
-    public static void usePattern(Path path, String pattern){
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(path,pattern);) {
+    public static void usePattern(Path path, String pattern) throws IOException {
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(path, pattern);) {
 
             for (Path dirpath : stream) {
                 System.out.println(dirpath);
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
 
+    public static void withoutPattern(Path path) throws IOException {
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
 
+            for (Path dirpath : stream) {
+                System.out.println(dirpath);
+            }
+
+        }
+    }
 
 
 }

@@ -33,8 +33,13 @@ public class ReadWrite {
             reader.read(in);
 
            for (char c:in){
+               if (Character.MIN_VALUE == c){
+                   continue;
+               }
                System.out.print(c);
            }
+
+
 
             reader.close();
 

@@ -1,5 +1,6 @@
 package com.marcus.files.paths;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,13 +15,28 @@ public class ExaminePaths {
 
     public static void main(String[] args) {
 
+        Path apath = Paths.get("/home","marcus","Downloads");
+        Path winpath = Paths.get("C:","users");
+
+
         // you get a path by using the Paths class
         Path myhome = Paths.get("/home/marcus/blob.txt");
         examinePath(myhome);
+        Path currDirectory = Paths.get(".");
+        examinePath(currDirectory);
 
        // or can break your path down into parts (easier to use
         Path parts = Paths.get("/home","marcus","what.txt");
         examinePath(parts);
+
+        // using the oldway to get a path...
+
+        File f = new File("blob.txt");
+        Path oldFile = f.toPath();
+
+        // and convert new to old
+
+        File oldfile2 = oldFile.toFile();
 
        // create a file
 
@@ -85,6 +101,11 @@ public class ExaminePaths {
         System.out.println("Parent :" + path.getParent());
         System.out.println("Name count : " +  path.getNameCount());
         System.out.println("File name : " + path.getFileName());
+        try {
+            System.out.println("Real path : " +path.toRealPath());
+        } catch (IOException e) {
+            System.out.println("Real path does not exist");
+        }
         Iterator<Path> iterator = path.iterator();
         while (iterator.hasNext()) {
             System.out.println("Iteration .... " + iterator.next());
